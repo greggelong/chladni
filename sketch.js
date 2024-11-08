@@ -12,13 +12,14 @@ function setup() {
   let cx = (windowWidth-cnv.width)/2
   let cy = (windowHeight-cnv.height)/2
   cnv.position(cx,cy)
-  pixelDensity(1);
+  //pixelDensity(1);
   
   // Set up microphone input
   mic = new p5.AudioIn();
   mic.start(); // Start capturing audio
   micbutt = createButton("startAudio")
   micbutt.position(cx,cy+height+10)
+  micbutt.mouseClicked(unlockAudioContext)
 
 
   
@@ -66,4 +67,19 @@ function keyPressed() {
     m = (m % 5) + 1; // Cycle m between 1 and 5
   }
   redraw(); // Redraw the plot after changing m
+}
+
+
+function unlockAudioContext() {
+  const audioCtx = getAudioContext();
+  if (audioCtx.state === "suspended") {
+    audioCtx
+      .resume()
+      .then(() => {
+        console.log("Audio context unlocked");
+      })
+      .catch((err) => {
+        console.error("Failed to unlock audio context:", err);
+      });
+  }
 }
