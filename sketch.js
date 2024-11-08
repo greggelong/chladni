@@ -17,7 +17,7 @@ function setup() {
   // Set up microphone input
   mic = new p5.AudioIn();
   mic.start(); // Start capturing audio
-  micbutt = createButton("startAudio")
+  micbutt = createButton("startMic")
   micbutt.position(cx,cy+height+10)
   micbutt.mouseClicked(unlockAudioContext)
 
