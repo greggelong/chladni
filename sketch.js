@@ -5,6 +5,7 @@ let m = 2; // Integer m
 let mic; // Microphone input
 let micbutt
 let cnv
+// dog
 
 function setup() {
 
