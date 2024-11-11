@@ -13,7 +13,7 @@ function setup() {
   let cx = (windowWidth-cnv.width)/2
   let cy = (windowHeight-cnv.height)/2
   cnv.position(cx,cy)
-  //pixelDensity(1);
+  pixelDensity(1);
   
   // Set up microphone input
   mic = new p5.AudioIn();
